@@ -1,7 +1,7 @@
 # Clone or download app
 
-    git clone git@github.com:shalurai/books.git    
-    cd books
+    git clone git@github.com:shalurai/Books.git   
+    cd Books
     npm install
     npm start
 
