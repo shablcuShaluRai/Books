@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 
 export default class BooksDetail extends Component{
   render(){
     let { books }= this.props
     return(
+      <div>
       <table className='table table-bordered table-hover'>
       <thead>
        <tr>
@@ -24,6 +26,11 @@ export default class BooksDetail extends Component{
 
       </tbody>
       </table>
+      <button className='expand'>
+         <Link className = 'link' to='/'>Back</Link>
+      </button>
+
+      </div>
     )
   }
 }

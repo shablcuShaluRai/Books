@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import serializeForm from 'form-serialize'
+import { Link } from 'react-router-dom'
 
 
 export default class BooksForm extends Component{
@@ -13,13 +14,18 @@ export default class BooksForm extends Component{
   }
   render(){
     return(
-      <div>
+
+      <div className = "form-style">
+      <h1>Books Detail Form </h1>
       <form onSubmit={this.handleSubmit} className='create-contact-form'>
       <div className='create-contact-details'>
       <input type='text' name='name' placeholder='Name'/>
       <input type='text' name='author' placeholder='Author'/>
       <input type='number' name='price' placeholder='Price'/>
-      <button>Add Book</button>
+      <button className='link'>Add Book</button>
+      <button>
+      <Link className= 'link' to='/detail'>Detail</Link>
+      </button>
       </div>
       </form>
       </div>

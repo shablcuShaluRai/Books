@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  * as BooksApi from './utils/BooksAPI'
 import BooksDetail from './BooksDetail'
 import BooksForm from './BooksForm'
+import { Route } from 'react-router-dom'
 
 
 class App extends Component {
@@ -28,12 +29,21 @@ class App extends Component {
     return (
       <div className="App">
       <h1 align = 'center'>Books App</h1>
-      <BooksDetail
-       books = {this.state.books}
-       />
-       <BooksForm   oncreateBookForm={(book) => {
-           this.createBookForm(book)
-             }}/>
+
+      <Route exact path='/'render={({ history }) =>(
+        <BooksForm   oncreateBookForm={(book) => {
+            this.createBookForm(book)
+            history.push('/detail')
+          }}/>
+      )}
+        />
+
+        <Route  path='/detail' render={() => (
+          <BooksDetail
+        books = {this.state.books}
+        />
+)}
+/>
 
       </div>
     );
