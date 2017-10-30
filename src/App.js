@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import  * as BooksApi from './utils/BooksAPI'
+import BooksDetail from './BooksDetail'
 
 
 class App extends Component {
@@ -17,17 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Books App</h1>
-
-        {this.state.books.map(books =>
-          <div key={books.id}>
-          <ol>
-        <p>{books.author}</p>
-        <p>{books.name} </p>
-        <p>{books.price}</p>
-          </ol>
-          </div>
-        )}
+      <h1 align = 'center'>Books App</h1>
+      <BooksDetail
+  books = {this.state.books}
+ />
 
       </div>
     );
