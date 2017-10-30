@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import  * as BooksApi from './utils/BooksAPI'
 import BooksDetail from './BooksDetail'
+import BooksForm from './BooksForm'
 
 
 class App extends Component {
@@ -15,13 +16,24 @@ class App extends Component {
     })
   }
 
+  createBookForm(book) {
+     BooksApi.create(book).then(book => {
+      this.setState(state => ({
+          books: state.books.concat([ book ])
+      }))
+    })
+  }
+
   render() {
     return (
       <div className="App">
       <h1 align = 'center'>Books App</h1>
       <BooksDetail
-  books = {this.state.books}
- />
+       books = {this.state.books}
+       />
+       <BooksForm   oncreateBookForm={(book) => {
+           this.createBookForm(book)
+             }}/>
 
       </div>
     );
